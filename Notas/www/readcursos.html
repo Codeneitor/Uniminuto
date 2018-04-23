@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="css/ionic.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/geturi.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var url="http://127.0.0.1/phonegap/notasdb/read.php";
+	$.getJSON(url,function(result){
+		console.log(result);
+		$.each(result, function(i, field){
+			var id=field.id;
+			var curso=field.curso;
+			var docente=field.docente;
+			var estudiante=field.estudiante;
+			var nota1=field.nota1;
+			var nota2=field.nota2;
+			var nota3=field.nota3;
+			var promedio=field.promedio;
+			var observaciones=field.observaciones;
+			$("#listview").append("<a class='item' href='form.html?id="+id+"&curso="+curso+"&docente="+docente+"&estudiante="+estudiante+"&nota1="+nota1+"&nota2="+nota2+"&nota3="+nota3+"&promedio="+promedio+"&observaciones="+observaciones+"'><span class='item-note'>Curso:  "+curso+"</span><h2>Docente:  "+ docente + " </h2><p> Estudiante:  "+ estudiante +"</p><p>Nota1:  "+ nota1 +"</p><p>Nota2:  "+ nota2 +"</p><p>Nota3:  "+ nota3 +"</p><p>Promedio:  "+ promedio +"</p><p>Observaciones:  "+ observaciones +"</p></a>");
+		});
+	});
+});
+ </script>
+</head>
+<body>
+<div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	<a href="index.html" class="button button-clear">Inicio</a>
+	<h1 class="title">Leer DataBase (JSON)</h1>
+</div><br/><br/>
+<ul class="list" id="listview">
+</ul>
+</body>
+</html>
