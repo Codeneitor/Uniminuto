@@ -1,1 +1,1 @@
-##Aplicación que realiza consultas al Web Service de fixer.io
+##Aplicación para convertir divisas usando MySQL AJAX PHP JSON y JavaScript
